@@ -1,0 +1,17 @@
+server:
+  port: 8000
+
+topic: "kafka-demo"
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      acks: all
+      retries: 3
+      compression-type: snappy
+      batch-size: 32768
+
+cron:
+  incident-scheduler:
+    load-messages-and-send-incidents: "*/3 * * * * *"
